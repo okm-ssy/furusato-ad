@@ -2,10 +2,11 @@
 import { computed } from 'vue';
 
 const props = defineProps<{
-  value: number
+  value: number,
+  maxValue: number
 }>();
 
-const width = computed(() => Math.min(props.value,100));
+const width = computed(() => 100 * Math.min(props.value ?? 0, props.maxValue) / props.maxValue);
 </script>
 
 <template>
